@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head><title>Login</title></head>
+<body>
+<h2>Login</h2>
+{% if fejl %}<p style="color:red;">{{ fejl }}</p>{% endif %}
+<form method="post">
+    Brugernavn: <input type="text" name="brugernavn"><br>
+    Kode: <input type="password" name="kode"><br>
+    <button type="submit">Login</button>
+</form>
+</body>
+</html>

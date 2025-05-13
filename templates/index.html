@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>
+        #map { height: 400px; width: 100%; }
+        table { margin-top: 20px; border-collapse: collapse; }
+        th, td { border: 1px solid black; padding: 6px; }
+    </style>
+</head>
+<body>
+<p>Logget ind som: {{ session['brugernavn'] }} ({{ rolle }})</p>
+<a href="{{ url_for('logout') }}">Log ud</a>
+
+<h2>Seneste Målinger</h2>
+<div id="map"></div>
+
+<table>
+<tr><th>Tid</th><th>Temperatur</th><th>Latitude</th><th>Longitude</th></tr>
+{% for tid, temp, lat, lon in data %}
+<tr><td>{{ tid }}</td><td>{{ temp }} °C</td><td>{{ lat }}</td><td>{{ lon }}</td></tr>
+{% endfor %}
+</table>
+
+<script>
+    function initMap() {
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 10,
+            center: { lat: {{ data[0][2] }}, lng: {{ data[0][3] }} }
+        });
+
+        {% for tid, temp, lat, lon in data %}
+        new google.maps.Marker({
+            position: { lat: {{ lat }}, lng: {{ lon }} },
+            map,
+            title: "{{ temp }} °C @ {{ tid }}"
+        });
+        {% endfor %}
+    }
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=DIN_GOOGLE_MAPS_API_NØGLE&callback=initMap">
+</script>
+</body>
+</html>
