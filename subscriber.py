@@ -21,7 +21,8 @@ def on_message(client, userdata, msg):
         latitude = data["latitude"]
         longitude = data["longitude"]
         print(f"Modtog: {data}")
-        cursor.execute("INSERT INTO målinger (temperatur, latitude, longitude) VALUES (?, ?, ?)", (temperatur, latitude, longitude))
+        cursor.execute("INSERT INTO målinger (temperatur, latitude, longitude) VALUES (?, ?, ?)",
+                       (temperatur, latitude, longitude))
         conn.commit()
     except Exception as e:
         print("Fejl:", e)
