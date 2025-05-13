@@ -3,7 +3,7 @@ import time
 import random
 import json
 
-broker = "DIN_AZURE_SERVER_IP"
+broker = "74.234.52.12"
 port = 1883
 topic = "sensor/data"
 
