@@ -16,9 +16,9 @@
 <div id="map"></div>
 
 <table>
-<tr><th>Tid</th><th>Temperatur</th><th>Latitude</th><th>Longitude</th></tr>
-{% for tid, temp, lat, lon in data %}
-<tr><td>{{ tid }}</td><td>{{ temp }} °C</td><td>{{ lat }}</td><td>{{ lon }}</td></tr>
+<tr><th>Tid</th><th>Temperatur</th><th>Latitude</th><th>Longitude</th><th>XValue</th><th>YValue</th><th>ZValue</th></tr>
+{% for tid, temp, lat, lon, xvalue, yvalue, zvalue in data %}
+<tr><td>{{ tid }}</td><td>{{ temp }} °C</td><td>{{ lat }}</td><td>{{ lon }}</td><td>{{ xvalue }}</td><td>{{ yvalue }}</td><td>{{ zvalue }}</td></tr>
 {% endfor %}
 </table>
 
