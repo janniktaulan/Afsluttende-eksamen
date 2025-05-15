@@ -1,4 +1,11 @@
 # Afsluttende-eksamen
+# V.2 //// 15/05/2025
+- DENNE VERSION ER TESTET OG ER FUNKTIONEL MED EN UNDTAGELSE
+- klokkeslæt for målinger er 2 timer for tidlige
+- updated index.html med fejlrettelser til visning af data
+- updated app.py med diverse fejlrettelser, bl.a. angående visning af data
+- tilføjet clear_db.py til at rense dataen. dette script er oprettet med henblik på test, og en rensning inden den endelige eksaminations data bliver taget
+- updated subscriber.py med fejlrettelser til indsættelse af data
 # V.2 //// 14/05/2025
 - DENNE VERSION ER INDTIL VIDERE UTESTET OG KUN LAVET TEORETISK. TESTES DEN 15/05/2025 OG OPDATERES TIL V.3
 - updated index.html for at også vise gyro data i tabellen
