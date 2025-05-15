@@ -14,7 +14,7 @@ def index():
 
     conn = sqlite3.connect("data.db")
     cursor = conn.cursor()
-    cursor.execute("SELECT tid, temperatur, latitude, longitude FROM målinger ORDER BY tid DESC LIMIT 10")
+    cursor.execute("SELECT tid, temperatur, latitude, longitude, xvalue, yvalue, zvalue FROM målinger ORDER BY tid DESC LIMIT 10")
     data = cursor.fetchall()
     conn.close()
 
