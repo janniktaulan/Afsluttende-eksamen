@@ -29,7 +29,7 @@
             center: { lat: {{ data[0][2] }}, lng: {{ data[0][3] }} }
         });
 
-        {% for tid, temp, lat, lon in data %}
+        {% for tid, temp, lat, lon, xvalue, yvalue, zvalue in data %}
         new google.maps.Marker({
             position: { lat: {{ lat }}, lng: {{ lon }} },
             map,
