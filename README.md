@@ -6,6 +6,7 @@
 - updated app.py med diverse fejlrettelser, bl.a. angående visning af data
 - tilføjet clear_db.py til at rense dataen. dette script er oprettet med henblik på test, og en rensning inden den endelige eksaminations data bliver taget
 - updated subscriber.py med fejlrettelser til indsættelse af data
+- updated arduino script så den ikke sender tid, da vi har valgt at droppe RTC. Dette er grundet at vi alligevel ikke logger noget, så skulle raspberry pi miste forbindelse med internettet, vil alt data gå tabt alligevel. Af den årsag kan vi lige så godt bruge Azure serverens egen tid.
 # V.2 //// 14/05/2025
 - DENNE VERSION ER INDTIL VIDERE UTESTET OG KUN LAVET TEORETISK. TESTES DEN 15/05/2025 OG OPDATERES TIL V.3
 - updated index.html for at også vise gyro data i tabellen
