@@ -34,7 +34,11 @@ def on_message(client, userdata, msg):
         print("Fejl:", e)
 
 client = mqtt.Client()
-client.connect("localhost", 1883)
+try:
+    client.connect("localhost", 1883)
+except Exception as e:
+    print("Kunne ikke forbinde til MQTT-broker:", e)
+    exit(1)
 client.subscribe("sensor/data")
 client.on_message = on_message
 

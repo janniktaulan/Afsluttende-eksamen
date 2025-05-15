@@ -33,7 +33,7 @@
         new google.maps.Marker({
             position: { lat: {{ lat }}, lng: {{ lon }} },
             map,
-            title: "{{ temp }} °C @ {{ tid }}"
+            title: "{{ temp }} °C @ {{ tid }}\nX: {{ xvalue }}, Y: {{ yvalue }}, Z: {{ zvalue }}"
         });
         {% endfor %}
     }
