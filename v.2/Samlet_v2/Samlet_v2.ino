@@ -1,9 +1,3 @@
-//DS3231 / RTC
-#include <Wire.h>
-#include <DS3231.h>
-DS3231 clock;
-RTCDateTime dt;
-
 // TEMP
 #include <DHT.h>
 #define DHTPIN 2
@@ -32,14 +26,9 @@ bool GPSfixUpdated;
 
 //Til Raspberry PI
 String datastring = "";
-String time = "";
 
 void setup()
 {
-  // RTC
-  clock.begin();
-  // Disable this after setting the time once
-  //clock.setDateTime(__DATE__, __TIME__);
  //Communication with Raspberry PI
   Serial2.begin(115200);
   //GPS
@@ -107,28 +96,6 @@ void loop()
 
   if (GPSfixUpdated)
   {
-// DS3231 / RTC
-dt = clock.getDateTime();
-  Serial.print("Reading at: ");
-  Serial.print(dt.year);   Serial.print("-");
-  // print month
-  Serial.print(dt.month);   Serial.print("-");
-  // print day
-  Serial.print(dt.day);   Serial.print(" ");
-  // print hour
-  Serial.print(dt.hour);    Serial.print(":");
-  // print minute
-  Serial.print(dt.minute);    Serial.print(":");
-  // print second
-  Serial.print(dt.second);
-  Serial.println();
-      Serial.println("");
-  time = dt.year; time += "-";
-  time += dt.month; time += "-";
-  time += dt.day; time += " ";
-  time += dt.hour; time += ":";
-  time += dt.minute; time += ":";
-  time += dt.second;
 // DHT    
   temperature = dht.readTemperature();
   Serial.print("Temperature: ");
@@ -157,8 +124,6 @@ dt = clock.getDateTime();
     datastring += ";";
     datastring += GPSLon;
     datastring += ";";
-    //datastring += time;
-    //datastring += ";";
     datastring += xValue;
     datastring += ";";
     datastring += yValue;
